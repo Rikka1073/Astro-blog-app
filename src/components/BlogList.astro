@@ -1,7 +1,7 @@
 ---
 //microCMS呼び出し
 import { getBlogs } from "../lib/microcms";
-const response = await getBlogs({ fields: ["id","title","createdAt"] });
+const response = await getBlogs({ fields: ["id", "title", "createdAt"] });
 console.log(response.contents);
 
 type Blog = {
@@ -13,18 +13,17 @@ type Blog = {
 const formatDate = (date: string) => {
   const newDate = new Date(date);
   const year = newDate.getFullYear();
-  const month = (newDate.getMonth() + 1).toString().padStart(2, '0');
-  const day = (newDate.getDate()).toString().padStart(2, '0');
+  const month = (newDate.getMonth() + 1).toString().padStart(2, "0");
+  const day = newDate.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
-
 ---
 
 <div class="bg-gray-50 p-4 rounded-2xl mb-4 shadow-lg border-purple-400 border">
   <h2 class="font-bold text-lg">最新のブログ</h2>
   {
     response.contents.map((blog: Blog) => (
-      <a href="" class="flex gap-7">
+      <a href={blog.id} class="flex gap-7">
         <p class="text-md w-28">{formatDate(blog.createdAt)}</p>
         <p class="line-clamp-2 text-md hover:underline font-bold">{blog.title}</p>
       </a>
