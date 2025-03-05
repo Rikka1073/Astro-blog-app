@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import { getBlogDetail, getBlogs } from "../lib/microcms";
 import DOMPurify from "isomorphic-dompurify";
 import Box from "../components/Box.astro";
+import SubTitle from "../components/SubTitle.astro";
 
 export const getStaticPaths = async () => {
   const response = await getBlogs({ fields: ["id"] });
@@ -24,7 +25,7 @@ const sanitizedText = (text: string) => {
 
 <Layout>
   <Box>
-  <h2>{blog.title}</h2>
+<SubTitle>{blog.title}</SubTitle>
   <p class="break-words">{sanitizedText(blog.content)}</p>
   </Box>
 </Layout>

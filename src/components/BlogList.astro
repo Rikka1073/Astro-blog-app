@@ -2,6 +2,7 @@
 //microCMS呼び出し
 import { getBlogs } from "../lib/microcms";
 import Box from "../components/Box.astro";
+import SubTitle from "./SubTitle.astro";
 const response = await getBlogs({ fields: ["id", "title", "createdAt"], limit: 5 });
 console.log(response.contents);
 
@@ -21,7 +22,7 @@ const formatDate = (date: string) => {
 ---
 
 <Box>
-  <h2 class="font-bold text-lg mb-2">最新のブログ</h2>
+  <SubTitle>最新のブログ</SubTitle>
   <div class="flex flex-col gap-2">
     {
       response.contents.map((blog: Blog) => (
