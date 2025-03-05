@@ -1,19 +1,24 @@
 ---
 import { Icon } from "astro-icon/components";
+import Box from "./Box.astro";
 ---
 
-<header class="bg-gray-50 flex justify-between items-center p-4 rounded-2xl mb-4 shadow-lg border-purple-400 border">
-  <h1 class="text-2xl font-bold">
-    <a href="/">My Blog</a>
-  </h1>
-  <nav>
-    <ul class="flex gap-2">
-      <li>
-        <a href="https://x.com/masafumi1073"><Icon name="fa6-brands:x-twitter" width={24} height={24} /></a>
-      </li>
-      <li>
-        <a href="https://github.com/Rikka1073"><Icon name="fa6-brands:github" width={24} height={24} /></a>
-      </li>
-    </ul>
-  </nav>
+<header class="">
+  <Box>
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-bold">
+        <a href="/">My Blog</a>
+      </h1>
+      <nav>
+        <ul class="flex gap-2">
+          <li>
+            <a href="https://x.com/masafumi1073"><Icon name="fa6-brands:x-twitter" width={24} height={24} /></a>
+          </li>
+          <li>
+            <a href="https://github.com/Rikka1073"><Icon name="fa6-brands:github" width={24} height={24} /></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </Box>
 </header>
