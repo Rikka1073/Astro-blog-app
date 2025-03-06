@@ -1,5 +1,4 @@
 ---
-import { string } from "astro:schema";
 import Layout from "../layouts/Layout.astro";
 import { getBlogDetail, getBlogs } from "../lib/microcms";
 import DOMPurify from "isomorphic-dompurify";
@@ -25,7 +24,7 @@ const sanitizedText = (text: string) => {
 
 <Layout>
   <Box>
-<SubTitle>{blog.title}</SubTitle>
-  <p class="break-words">{sanitizedText(blog.content)}</p>
+    <SubTitle>{blog.title}</SubTitle>
+    <p class="break-words">{sanitizedText(blog.content)}</p>
   </Box>
 </Layout>
