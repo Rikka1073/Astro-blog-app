@@ -17,7 +17,6 @@ const blog = await getBlogDetail(blogId);
 
 const sanitizedText = (text: string) => {
   const clean = DOMPurify.sanitize(text, { ALLOWED_TAGS: [""] });
-  console.log(clean);
   return clean;
 };
 ---
