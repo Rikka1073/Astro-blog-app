@@ -27,7 +27,7 @@ const { title } = Astro.props;
   <div class="flex flex-col gap-2">
     {
       response.contents.map((blog: Blog) => (
-        <a href={blog.id} class="flex gap-7">
+        <a href={`/blog/${blog.id}`} class="flex gap-7">
           <p class="text-md w-28">{formatDate(blog.createdAt)}</p>
           <p class="line-clamp-2 text-md hover:underline font-bold">{blog.title}</p>
         </a>
