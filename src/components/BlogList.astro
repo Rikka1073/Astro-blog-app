@@ -19,10 +19,12 @@ const formatDate = (date: string) => {
   const day = newDate.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
+
+const { title } = Astro.props;
 ---
 
 <Box>
-  <SubTitle>最新のブログ</SubTitle>
+  <SubTitle title={title} />
   <div class="flex flex-col gap-2">
     {
       response.contents.map((blog: Blog) => (
