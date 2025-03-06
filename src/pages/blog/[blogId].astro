@@ -3,7 +3,6 @@ import Box from "../../components/Box.astro";
 import SubTitle from "../../components/SubTitle.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getBlogDetail, getBlogs } from "../../lib/microcms";
-import DOMPurify from "isomorphic-dompurify";
 
 export const getStaticPaths = async () => {
   const response = await getBlogs({ fields: ["id"] });
@@ -14,16 +13,11 @@ export const getStaticPaths = async () => {
 };
 const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId);
-
-const sanitizedText = (text: string) => {
-  const clean = DOMPurify.sanitize(text, { ALLOWED_TAGS: [""] });
-  return clean;
-};
 ---
 
 <Layout>
   <Box>
     <SubTitle title={blog.title} />
-    <p class="break-words">{sanitizedText(blog.content)}</p>
+    <div set:html={blog.content} />
   </Box>
 </Layout>
